@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>武汉软博科技有限公司 - 专业提供网站建设、APP开发、微信二次开发、系统平台开发</title>
+    <meta name="keywords" content="武汉软博科技有限公司是一家专业提供网站建设、APP开发、微信二次开发、系统平台开发的需求定制服务商，公司秉乘客户至上，精益求精的态度，已为业内众多公司单位提供了相关专业产品，并赢得了良好的市场口碑">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="font/demo.css">
+    <link rel="stylesheet" href="font/iconfont.css">
+    <link rel="stylesheet" href="css/Base.min.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <!--[if lt IE 9]>
+        <script src="js/html5.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <header>
+        <div>
+            <h1><span>武汉软博科技有限公司</span><a href="http://ruanbokj.com/"><img src="img/LOGO.png" alt="武汉软博科技有限公司LOGO"></a></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">
+                        <strong><h3>首页</h3>
+                        <span>HOME</span></strong>
+                        <em><h3>首页</h3>
+                        <span>HOME</span></em>
+                        </a>
+                    </li>
+                    <li><a href="about.html">
+                        <strong><h3>软博</h3>
+                        <span>ABOUT RB</span></strong>
+                        <em><h3>软博</h3>
+                        <span>ABOUT RB</span></em>
+                        </a>
+                    </li>
+                    <li><a href="services.html">
+                        <strong><h3>服务</h3>
+                        <span>SERVICES</span></strong>
+                        <em><h3>服务</h3>
+                        <span>SERVICES</span></em>
+                        </a>
+                    </li>
+                    <li><a href="case.html">
+                        <strong><h3>案例</h3>
+                        <span>OUR CAS</span></strong>
+                        <em><h3>案例</h3>
+                        <span>OUR CES</span></em>
+                        </a>
+                    </li>
+                    <li><a href="news.html">
+                        <strong><h3>资讯</h3>
+                            <span>NEWS</span></strong>
+                        <em><h3>资讯</h3>
+                        <span>NEWS</span></em>
+                        </a>
+                    </li>
+                    <li><a href="javascript:;">
+                        <strong><h3>联系</h3>
+                        <span>CONTACT</span></strong>
+                        <em><h3>联系</h3>
+                        <span>CONTACT</span></em>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    
+    <div id="banner" class="topFixed">
+        <img src="img/contact.jpg" alt="联系软博">
+    </div>
+    
+    <article>
+        <ul>
+            <li><span class="icon iconfont icon-dizhi"></span>
+                <h4>公司地址</h4>
+                <p>武汉市光谷SBI创业街<br>特一栋一单元1701</p>
+            </li>
+            <li><span class="icon iconfont icon-dianhua1"></span>
+                <h4>联系方式</h4>
+                <p>电话：027-87777085</p>
+            </li>
+            <li><span class="icon iconfont icon-youxiang"></span>
+                <h4>软博邮箱</h4>
+                <p>ruanbokj@163.com</p>
+            </li>
+            <li><span class="icon iconfont icon-qq01"></span>
+                <h4>企业QQ</h4>
+                <p>1771670282</p>
+            </li>
+        </ul>
+        
+        <script src="http://api.map.baidu.com/api?v=1.3"></script>
+        <div id="map"></div>
+        <script type="text/javascript">
+            var opts = {
+                width: 250,
+                height: 50,
+                title: "<strong>武汉软博科技有限公司</strong>"
+            }
+            var infoWindow = new BMap.InfoWindow('地址：光谷SBI创业街特一栋一单元', opts); 
+            var map = new BMap.Map("map");
+            var point = new BMap.Point(114.294928, 30.590286);
+            map.centerAndZoom(point, 5);
+            getpoint('武汉光谷SBI创业街', '');
+            map.enableScrollWheelZoom(); 
+            map.enableDoubleClickZoom();
+            map.addControl(new BMap.NavigationControl());
+            function getpoint(addr, area) {
+                var myGeo = new BMap.Geocoder();
+                 myGeo.getPoint(addr, function (point) {
+                    if (point) {
+                        map.centerAndZoom(point, 15);
+                        var marker = new BMap.Marker(point);
+                        map.clearOverlays();
+                        map.addOverlay(marker);
+                        marker.openInfoWindow(infoWindow); 
+                        marker.addEventListener("dragend", function (e) {
+                            this.openInfoWindow(infoWindow);
+                            infoWindow.redraw();
+                        })
+                        marker.addEventListener("click", function (e) {
+                            this.openInfoWindow(infoWindow);
+                            infoWindow.redraw();
+                        })
+                    } else {
+                        getpoint(area, area);
+                    }
+                }, area);
+            }
+            function showinfo(zb) {
+                var mapobj = mapArray[zb];
+                var point = new BMap.Point(mapobj.x, mapobj.y);
+                map.centerAndZoom(point, 14);
+                var infoWindow = new BMap.InfoWindow(mapobj.newstext, opts); 
+                var marker = new BMap.Marker(point); 
+                map.clearOverlays();
+                map.addOverlay(marker);
+                marker.openInfoWindow(infoWindow);
+                marker.addEventListener("dragend", function (e) {
+                    this.openInfoWindow(infoWindow);
+                    infoWindow.redraw();
+                })
+                marker.addEventListener("click", function (e) {
+                    this.openInfoWindow(infoWindow);
+                    infoWindow.redraw();
+                })
+            }
+        </script>
+    </article>
+    
+    
+    
+    <footer>
+        <div class="f-con">
+            <img src="img/footer-logo.png" alt="软博科技LOGO">
+            <div>
+                <h4>服务范围</h4>
+                <ul>
+                    <li><a href="javascript:;">网页设计</a></li>
+                    <li><a href="javascript:;">网站制定</a></li>
+                    <li><a href="javascript:;">网站二次开发</a></li>
+                    <li><a href="javascript:;">网站维护与优化</a></li>
+                </ul>
+                <ul>
+                    <li><a href="javascript:;">App设计</a></li>
+                    <li><a href="javascript:;">App定制</a></li>
+                    <li><a href="javascript:;">微信二次开发</a></li>
+                    <li><a href="javascript:;">微信服务</a></li>
+                </ul>
+                <ul>
+                    <li><a href="javascript:;">平台定制开发</a></li>
+                    <li><a href="javascript:;">PC+手机+微信</a></li>
+                    <li><a href="javascript:;">系统开发</a></li>
+                    <li><a href="javascript:;">项目合作</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>联系方式</h4>
+                <ul>
+                    <li><span class="icon iconfont icon-dianhua"></span>027-87777085</li>
+                    <li><span class="icon iconfont icon-qq"></span>1771670282</li>
+                    <li><span class="icon iconfont icon-youxiang1"></span>ruanbokj@163.com</li>
+                </ul>
+            </div>
+        </div>
+        <p><a href="javascript:;">加入我们</a>
+        <a href="javascript:;">免责声明</a>
+        <a href="javascript:;">意见反馈</a>
+        <a href="javascript:;">友情链接</a></p>
+        <p>&copy; 2010-2014 www.ruanbokj.com 软博版权所有 鄂ICP备 12050282号-2</p>
+    </footer>
+    
+    <script src="js/public.min.js"></script>
+    <script src="js/Base.min.js"></script>
+    <script src="js/bannerPosition.min.js"></script>
+</body>
+</html>
