@@ -1,0 +1,45 @@
+
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1490076986583'); /* IE9*/
+  src: url('iconfont.eot?t=1490076986583#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1490076986583') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1490076986583') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1490076986583#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-dingwei:before { content: "\f0017"; }
+
+.icon-dianhua:before { content: "\e622"; }
+
+.icon-qq:before { content: "\e62d"; }
+
+.icon-iconfontmoban:before { content: "\e606"; }
+
+.icon-qq01:before { content: "\e61a"; }
+
+.icon-dianhua1:before { content: "\e61d"; }
+
+.icon-dizhi:before { content: "\e66c"; }
+
+.icon-xitong:before { content: "\e721"; }
+
+.icon-msnui-website:before { content: "\e77f"; }
+
+.icon-youxiang:before { content: "\e68b"; }
+
+.icon-youjiantou:before { content: "\e718"; }
+
+.icon-youxiang1:before { content: "\e640"; }
+
+.icon-app:before { content: "\e600"; }
+
+.icon-zuojiantou:before { content: "\e8f8"; }
+
